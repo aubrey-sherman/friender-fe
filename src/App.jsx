@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import logo from './logo.svg';
+import UploadImageForm from './UploadImageForm.jsx';
 import './App.css';
 
 
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-
+      <UploadImageForm />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import UploadImageForm from './UploadImageForm.jsx';
-import './App.css';
+//import './App.css';
 
 
 /** Component for entire page.
@@ -11,11 +11,8 @@ import './App.css';
 */
 
 function App() {
-  const [count, setCount] = useState(0);
 
-  function incrCount() {
-    setCount(count => count + 1);
-  }
+  // uploadImageFile() {}
 
   return (
     <div className="App">

@@ -1,31 +1,43 @@
 import { useState } from 'react';
 import { BrowserRouter } from "react-router-dom";
-import UploadImageForm from './UploadImageForm.jsx';
 import FrienderApi from './api.js';
-import RoutesList from './RoutesList.jsx';
+import RouteList from './RouteList.jsx';
 //import './App.css';
 
 
-/** Component for entire page.
+/** Component for entire Friender app.
  *
  * Props: none
- * State: none
+ * State:
+ *  - token
+ *  - currentUser
+ *
+ * App -> RouteList
  *
 */
 
 function App() {
+  // const [token, setToken] = useState(null);
+  const [currUser, setCurrUser] = useState(null);
 
+  /** Upload image file to AWS bucket. */
   function uploadImage(imageFile) {
     FrienderApi.uploadImage(imageFile);
   }
 
-  function signUp(username, password) {
-    FrienderApi.getToken(username, password);
+  /** Sign up a user for site account. */
+  function signUp(newUserDetails) {
+    FrienderApi.signUp(newUserDetails);
+  }
+
+  /** Log in a user and set token in state. */
+  function logIn(username, password) {
+    FrienderApi.logIn(username, password);
   }
 
   return (
     <BrowserRouter>
-      <RoutesList uploadImage={uploadImage} signUp={signUp}/>
+      <RouteList currUser={currUser} uploadImage={uploadImage} signUp={signUp} />
     </BrowserRouter>
   );
 };

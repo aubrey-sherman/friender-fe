@@ -21,23 +21,31 @@ function App() {
   const [currUser, setCurrUser] = useState(null);
 
   /** Upload image file to AWS bucket. */
-  function uploadImage(imageFile) {
-    FrienderApi.uploadImage(imageFile);
+  async function uploadImage(imageFile) {
+    await FrienderApi.uploadImage(imageFile);
   }
 
-  /** Sign up a user for site account. */
-  function signUp(newUserDetails) {
-    FrienderApi.signUp(newUserDetails);
+  /** Sign up a user for site account and log them in on success. */
+  async function signUp(newUserDetails) {
+    const token = await FrienderApi.signUp(newUserDetails);
+
+    FrienderApi.addToken(token);
+    console.log("token on class", token);
+    const username = FrienderApi.getUsername(token);
+    console.log("** signUp username=", username);
+    const userInfo = await FrienderApi.getUser(username);
+
+    setCurrUser(userInfo);
   }
 
   /** Log in a user and set token in state. */
-  function logIn(username, password) {
-    FrienderApi.logIn(username, password);
+  async function logIn(username, password) {
+    await FrienderApi.logIn(username, password);
   }
 
   return (
     <BrowserRouter>
-      <RouteList currUser={currUser} uploadImage={uploadImage} signUp={signUp} />
+      <RouteList currUser={currUser} uploadImage={uploadImage} logIn={logIn} signUp={signUp} />
     </BrowserRouter>
   );
 };

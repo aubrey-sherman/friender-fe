@@ -1,6 +1,6 @@
 const BASE_URL = "http://localhost";
-const PORT = "5000";
-
+const PORT = "5001";
+import { jwtDecode as decode } from "jwt-decode";
 
 /**  */
 
@@ -33,8 +33,10 @@ class FrienderApi {
       },
       body: loginData
     });
+
     const data = await resp.json();
     console.log(data);
+    return data.token;
   }
 
   /** Sign up for a site account and return a token. */
@@ -42,7 +44,7 @@ class FrienderApi {
   static async signUp(newUserDetails) {
     const signupData = JSON.stringify(newUserDetails);
 
-    const resp = await fetch(`${BASE_URL}:${PORT}/token`, {
+    const resp = await fetch(`${BASE_URL}:${PORT}/register`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
@@ -51,14 +53,38 @@ class FrienderApi {
     });
     const data = await resp.json();
 
-    return data.token;
     console.log(data);
+    return data.token;
   }
 
   /** Save the current user's token on the class.  */
   static addToken(token) {
     FrienderApi.token = token;
   }
+
+  /** Get user from database. */
+  static async getUser(username) {
+
+    const headers = {
+      authorization: `Bearer ${FrienderApi.token}`,
+    };
+
+    const resp = await fetch(`${BASE_URL}:${PORT}/users/${username}`, headers);
+
+    const data = await resp.json();
+
+    console.log(data);
+    return data.user;
+  }
+
+
+  /** Get username from provided token. */
+  static getUsername(token) {
+    const { sub } = decode(token);
+    return sub;
+  }
+
+
 }
 
 export default FrienderApi;

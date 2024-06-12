@@ -3,14 +3,17 @@ import { useState } from "react";
 const INITIAL_FORM_DATA = {
   username: "",
   password: "",
-}
+};
 
 /** Signup form
  *
  * Props:
- * State:
+ *  - signUp
  *
- * App -> SignupForm
+ * State:
+ *  - formData
+ *
+ * RouteList -> SignupForm
 */
 
 function SignupForm({ signUp }) {
@@ -23,7 +26,7 @@ function SignupForm({ signUp }) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    signUp(formData.username, formData.password);
+    signUp(formData);
   }
 
   return (

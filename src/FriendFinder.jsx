@@ -1,13 +1,15 @@
 /** Shows possible friends for matching.
  *
  * Props:
+ *  - currUser
  *
  * State:
  *
  * RouteList -> FriendFinder
  */
-function FriendFinder() {
-  return <p>Find your next friend!</p>;
+function FriendFinder({ currUser }) {
+
+  return <p>Let's find your next friend, {currUser.username}!</p>;
 }
 
 export default FriendFinder;

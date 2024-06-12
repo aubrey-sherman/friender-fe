@@ -8,23 +8,25 @@ import { useState } from "react";
  *
  * App -> UploadImageForm
 */
-function UploadImageForm() {
-  const [formData, setFormData] = useState(null);
+function UploadImageForm({ uploadImage }) {
+  const [imageFile, setImageFile] = useState(null);
 
-  // FIXME: Update id and name for input field
-  function handleSubmit(evt) {
-    evt.preventDefault();
-    console.log("** formData=", evt.target);
+  function handleChange(evt) {
+    setImageFile(evt.target.files[0]);
   }
 
-  // handleSubmit
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    console.log(imageFile);
+    uploadImage(imageFile);
+  }
 
   return (
     <div className="UploadImageForm">
       <h3>Upload a profile pic!</h3>
-      <form action="/action_page.php" onSubmit={handleSubmit}>
-        <input type="file" id="myFile" name="filename" />
-        <input type="submit" />
+      <form onSubmit={handleSubmit}>
+        <input type="file" name="image" onChange={handleChange} />
+        <button>Upload Image!</button>
       </form>
     </div>
   );

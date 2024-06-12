@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { BrowserRouter } from "react-router-dom";
 import UploadImageForm from './UploadImageForm.jsx';
+import FrienderApi from './api.js';
+import RoutesList from './RoutesList.jsx';
 //import './App.css';
 
 
@@ -12,12 +15,18 @@ import UploadImageForm from './UploadImageForm.jsx';
 
 function App() {
 
-  // uploadImageFile() {}
+  function uploadImage(imageFile) {
+    FrienderApi.uploadImage(imageFile);
+  }
+
+  function signUp(username, password) {
+    FrienderApi.getToken(username, password);
+  }
 
   return (
-    <div className="App">
-      <UploadImageForm />
-    </div>
+    <BrowserRouter>
+      <RoutesList uploadImage={uploadImage} signUp={signUp}/>
+    </BrowserRouter>
   );
 };
 

@@ -22,7 +22,7 @@ function RouteList({ currUser, uploadImage, signUp, logIn }) {
     <div className="RoutesList">
       {currUser &&
         <Routes>
-          <Route path="/" element={<FriendFinder />} />
+          <Route path="/" element={<FriendFinder currUser={currUser} />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       }

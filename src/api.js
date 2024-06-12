@@ -1,3 +1,7 @@
+const BASE_URL = "http://localhost";
+const PORT = "5000";
+
+
 /**  */
 
 class FrienderApi {
@@ -9,7 +13,7 @@ class FrienderApi {
     const imageData = new FormData();
     imageData.append('image', imageFile);
     // TODO: Fix port number before pushing!
-    const resp = await fetch('http://localhost:5001/uploadimage', {
+    const resp = await fetch(`${BASE_URL}:${PORT}/uploadimage`, {
       method: 'POST',
       body: imageData
     });
@@ -22,7 +26,7 @@ class FrienderApi {
   static async logIn(username, password) {
     const loginData = JSON.stringify({ username, password });
 
-    const resp = await fetch('http://localhost:5001/token', {
+    const resp = await fetch(`${BASE_URL}:${PORT}/token`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
@@ -38,7 +42,7 @@ class FrienderApi {
   static async signUp(newUserDetails) {
     const signupData = JSON.stringify(newUserDetails);
 
-    const resp = await fetch('http://localhost:5001/token', {
+    const resp = await fetch(`${BASE_URL}:${PORT}/token`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"

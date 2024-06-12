@@ -2,6 +2,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Home from "./Home.jsx";
 import LoginForm from "./LoginForm.jsx";
 import SignupForm from "./SignupForm.jsx";
+import FriendFinder from "./FriendFinder.jsx";
 
 /**
  * Purpose: route to different components based on URLs
@@ -22,6 +23,7 @@ function RouteList({ currUser, uploadImage, signUp, logIn }) {
       {currUser &&
         <Routes>
           <Route path="/" element={<FriendFinder />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       }
       {!currUser &&

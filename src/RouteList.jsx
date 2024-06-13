@@ -29,7 +29,7 @@ function RouteList({ currUser, uploadImage, signUp, logIn }) {
       }
       {!currUser &&
         <Routes>
-          <Route path="/" element={<FriendCard />} />
+          <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignupForm signUp={signUp} />} />
           <Route path="/login" element={<LoginForm logIn={logIn} />} />
           <Route path="*" element={<Navigate to="/" />} />

@@ -1,3 +1,5 @@
+import FriendCard from "./FriendCard.jsx";
+
 /** Shows possible friends for matching.
  *
  * Props:
@@ -5,11 +7,16 @@
  *
  * State:
  *
- * RouteList -> FriendFinder
+ * RouteList -> FriendFinder -> FriendCard
  */
 function FriendFinder({ currUser }) {
 
-  return <p>Let's find your next friend, {currUser.username}!</p>;
+  return (
+    <div className="FriendFinder">
+      <p>Let's find your next friend, {currUser.username}!</p>
+      <FriendCard />
+    </div>
+  );
 }
 
 export default FriendFinder;

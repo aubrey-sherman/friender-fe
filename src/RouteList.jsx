@@ -4,6 +4,7 @@ import LoginForm from "./LoginForm.jsx";
 import SignupForm from "./SignupForm.jsx";
 import FriendFinder from "./FriendFinder.jsx";
 import Profile from "./Profile.jsx";
+import Friends from "./Friends.jsx";
 
 /**
  * Purpose: route to different components based on URLs
@@ -24,6 +25,7 @@ function RouteList({ currUser, uploadImage, signUp, logIn }) {
       {currUser &&
         <Routes>
           <Route path="/" element={<FriendFinder currUser={currUser} />} />
+          <Route path="/friends" element={<Friends />} />
           <Route path="/profile" element={<Profile uploadImage={uploadImage} currUser={currUser} />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

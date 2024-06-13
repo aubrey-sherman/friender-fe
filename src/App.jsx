@@ -23,7 +23,8 @@ function App() {
 
   /** Upload image file to AWS bucket. */
   async function uploadImage(imageFile) {
-    await FrienderApi.uploadImage(imageFile);
+    const imageUrl = await FrienderApi.uploadImage(imageFile);
+    setCurrUser(currUser => ({ ...currUser, image_url: imageUrl }));
   }
 
   /** Sign up a user for site account and log them in on success. */

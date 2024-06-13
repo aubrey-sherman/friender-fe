@@ -19,6 +19,11 @@ function NavBar({ currUser, logOut }) {
             Find Friends
           </NavLink>
         </li>
+        <li>
+          <NavLink className="nav-link" to="/profile" >
+            Profile
+          </NavLink>
+        </li>
         <li className="nav-item me-4">
           <NavLink className="nav-link" to="/" onClick={logOut}>
             Log out {currUser.first_name || currUser.username}

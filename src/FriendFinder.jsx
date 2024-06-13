@@ -15,6 +15,8 @@ import FrienderApi from "./api.js";
 function FriendFinder({ currUser }) {
   const [potentialFriends, setPotentialFriends] = useState(null);
 
+  console.log("FriendFinder", { currUser, potentialFriends });
+
   useEffect(
     function loadPotentialFriendsOnMount() {
 

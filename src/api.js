@@ -1,5 +1,5 @@
 const BASE_URL = "http://localhost";
-const PORT = "5000";
+const PORT = "5001";
 import { jwtDecode as decode } from "jwt-decode";
 
 /**  */
@@ -13,12 +13,18 @@ class FrienderApi {
     const imageData = new FormData();
     imageData.append('image', imageFile);
 
+    const headers = {
+      authorization: `${FrienderApi.token}`,
+    };
+
     const resp = await fetch(`${BASE_URL}:${PORT}/uploadimage`, {
       method: 'POST',
+      headers: headers,
       body: imageData
     });
     const data = await resp.json();
     console.log(data);
+    return data.url;
   }
 
   /** Get token for login from user, password. */

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BrowserRouter } from "react-router-dom";
 import FrienderApi from './api.js';
 import RouteList from './RouteList.jsx';
+import NavBar from "./NavBar.jsx";
 //import './App.css';
 
 
@@ -29,7 +30,7 @@ function App() {
   async function signUp(newUserDetails) {
     const token = await FrienderApi.signUp(newUserDetails);
 
-    FrienderApi.addToken(token);
+    FrienderApi.updateToken(token);
 
     const username = FrienderApi.getUsername(token);
 
@@ -42,16 +43,25 @@ function App() {
   async function logIn(username, password) {
     const token = await FrienderApi.logIn(username, password);
 
-    FrienderApi.addToken(token);
+    FrienderApi.updateToken(token);
 
     const userInfo = await FrienderApi.getUser(username);
     setCurrUser(userInfo);
   }
 
+  /** Log out a user and set currUser to null. */
+  function logOut() {
+    FrienderApi.updateToken(null);
+    setCurrUser(null);
+  }
+
   return (
-    <BrowserRouter>
-      <RouteList currUser={currUser} uploadImage={uploadImage} logIn={logIn} signUp={signUp} />
-    </BrowserRouter>
+    <div>
+      <BrowserRouter>
+        <NavBar currUser={currUser} logOut={logOut} />
+        <RouteList currUser={currUser} uploadImage={uploadImage} logIn={logIn} signUp={signUp} />
+      </BrowserRouter>
+    </div>
   );
 };
 

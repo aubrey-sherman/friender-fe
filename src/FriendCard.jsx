@@ -5,7 +5,7 @@ import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 const DEFAULT_FRIEND = {
   username: 'friendlyFriend123',
   first_name: 'Friendly Friend',
-  image_name: "https://static.thenounproject.com/png/1718249-200.png",
+  image_url: "https://static.thenounproject.com/png/1718249-200.png",
   bio: "Sometimes I'm here every day."
 };
 
@@ -18,7 +18,7 @@ const DEFAULT_FRIEND = {
  *
  * FriendFinder -> FriendCard
 */
-function FriendCard({ friendDetails = DEFAULT_FRIEND }) {
+function FriendCard({ friendDetails }) {
 
   return (
     <div className="FriendCard container">
@@ -26,7 +26,7 @@ function FriendCard({ friendDetails = DEFAULT_FRIEND }) {
         <div className="col text-center">
           <div className="card">
             <h5 className="card-title fw-bold">{friendDetails.first_name}</h5>
-            <img className="card-img-top" src={friendDetails.image_name} alt={friendDetails.username} />
+            <img className="card-img-top" src={friendDetails.image_url} alt={friendDetails.username} />
             <div className="card-body">
               <div className="card-text">
                 <b>About {friendDetails.first_name}: </b>

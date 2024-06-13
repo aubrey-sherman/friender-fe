@@ -26,7 +26,7 @@ function LoginForm({ logIn }) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    logIn(formData);
+    logIn(formData.username, formData.password);
     navigate("/");
   }
 

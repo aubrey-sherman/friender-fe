@@ -30,17 +30,22 @@ function App() {
     const token = await FrienderApi.signUp(newUserDetails);
 
     FrienderApi.addToken(token);
-    console.log("token on class", token);
+
     const username = FrienderApi.getUsername(token);
-    console.log("** signUp username=", username);
+
     const userInfo = await FrienderApi.getUser(username);
 
     setCurrUser(userInfo);
   }
 
-  /** Log in a user and set token in state. */
+  /** Log in a user and set currUser in state. */
   async function logIn(username, password) {
-    await FrienderApi.logIn(username, password);
+    const token = await FrienderApi.logIn(username, password);
+
+    FrienderApi.addToken(token);
+
+    const userInfo = await FrienderApi.getUser(username);
+    setCurrUser(userInfo);
   }
 
   return (

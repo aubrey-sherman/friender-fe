@@ -8,11 +8,11 @@ class FrienderApi {
   static token = null;
 
 
-
+  // TODO: research exactly how FormData works
   static async uploadImage(imageFile) {
     const imageData = new FormData();
     imageData.append('image', imageFile);
-    // TODO: Fix port number before pushing!
+
     const resp = await fetch(`${BASE_URL}:${PORT}/uploadimage`, {
       method: 'POST',
       body: imageData

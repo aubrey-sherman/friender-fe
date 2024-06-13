@@ -57,8 +57,8 @@ class FrienderApi {
     return data.token;
   }
 
-  /** Save the current user's token on the class.  */
-  static addToken(token) {
+  /** Update the current token on the class.  */
+  static updateToken(token) {
     FrienderApi.token = token;
   }
 
@@ -79,6 +79,21 @@ class FrienderApi {
     return data.user;
   }
 
+  /** Get list of other users from database. */
+  static async getOtherUsers() {
+    const headers = {
+      authorization: `${FrienderApi.token}`,
+    };
+
+    const resp = await fetch(`${BASE_URL}:${PORT}/users`, {
+      headers: headers
+    });
+
+    const data = await resp.json();
+
+    console.log(data);
+    return data.users;
+  }
 
   /** Get username from provided token. */
   static getUsername(token) {

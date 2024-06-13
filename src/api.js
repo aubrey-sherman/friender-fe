@@ -97,8 +97,8 @@ class FrienderApi {
 
   /** Get username from provided token. */
   static getUsername(token) {
-    const { sub } = decode(token);
-    return sub;
+    const { username } = decode(token);
+    return username;
   }
 
 

@@ -8,14 +8,11 @@ import UploadImageForm from "./UploadImageForm.jsx";
  *
  * App > RoutesList > Home
  */
-function Home({ uploadImage }) {
+function Home() {
 
   return (
     <div className="Home">
-      Homepage!
-      <div className="App">
-        <UploadImageForm uploadImage={uploadImage} />
-      </div>
+      <p>Sign up for Friender!</p>
     </div>
   );
 }

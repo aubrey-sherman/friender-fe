@@ -108,6 +108,17 @@ class FrienderApi {
   }
 
 
+  /** Update a user's list of liked users. */
+  static async addLike(username) {
+    const headers = {
+      authorization: `${FrienderApi.token}`,
+    };
+
+    const resp = await fetch(`${BASE_URL}:${PORT}/users/like/${username}`);
+
+    const data = await resp.json();
+    return data.msg;
+  }
 }
 
 export default FrienderApi;

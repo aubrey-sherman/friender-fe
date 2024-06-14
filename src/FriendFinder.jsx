@@ -35,7 +35,7 @@ function FriendFinder({ currUser }) {
     const msg = await FrienderApi.addLike(potentialFriends[potentialFriends.length - 1].username);
     console.log("msg=", msg);
 
-    if (msg === "match") {
+    if (msg === "matched") {
       setAreFriends(true);
     }
 

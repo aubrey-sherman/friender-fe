@@ -13,12 +13,13 @@ const DEFAULT_FRIEND = {
  *
  * Props:
  *  - friendDetails
+ *  - handleClick
  *
  * State: none
  *
  * FriendFinder -> FriendCard
 */
-function FriendCard({ friendDetails }) {
+function FriendCard({ friendDetails, handleClick }) {
 
   return (
     <div className="FriendCard container">
@@ -32,7 +33,7 @@ function FriendCard({ friendDetails }) {
                 <b>About {friendDetails.first_name}: </b>
                 <p>{friendDetails.bio}</p>
               </div>
-              <button className="btn btn-primary">
+              <button className="btn btn-primary" onClick={handleClick}>
                 <i className="FriendCard-smile bi bi-emoji-smile h2"></i>
                 {`  Add friend!`}
               </button>

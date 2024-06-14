@@ -16,7 +16,7 @@ function FriendFinder({ currUser }) {
   const [potentialFriends, setPotentialFriends] = useState(null);
   const [hasBeenLiked, setHasBeenLiked] = useState(false);
   console.log("* FriendFinder", { currUser, potentialFriends });
-  const idx = potentialFriends.length - 1;
+  // const idx = potentialFriends.length - 1 || 0;
 
   useEffect(
     function loadPotentialFriendsOnMount() {
@@ -31,8 +31,8 @@ function FriendFinder({ currUser }) {
     []
   );
 
-  async function handleClick(username) {
-    const msg = await FrienderApi.addLike(username);
+  async function handleClick() {
+    const msg = await FrienderApi.addLike(potentialFriends[potentialFriends.length - 1].username);
     console.log("msg=", msg);
 
     potentialFriends.pop();
@@ -46,7 +46,10 @@ function FriendFinder({ currUser }) {
   return (
     <div className="FriendFinder">
       <p>Let's find your next friend, {currUser.username}!</p>
-      <FriendCard friendDetails={potentialFriends[idx]} />
+      <FriendCard
+        friendDetails={potentialFriends[potentialFriends.length - 1]}
+        handleClick={handleClick}
+      />
     </div>
   );
 }

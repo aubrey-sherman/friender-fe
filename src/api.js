@@ -1,5 +1,5 @@
 const BASE_URL = "http://localhost";
-const PORT = "5001";
+const PORT = "5000";
 import { jwtDecode as decode } from "jwt-decode";
 
 /**  */
@@ -114,7 +114,10 @@ class FrienderApi {
       authorization: `${FrienderApi.token}`,
     };
 
-    const resp = await fetch(`${BASE_URL}:${PORT}/users/like/${username}`);
+    const resp = await fetch(`${BASE_URL}:${PORT}/users/like/${username}`, {
+      method: "POST",
+      headers: headers
+    });
 
     const data = await resp.json();
     return data.msg;

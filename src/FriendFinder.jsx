@@ -40,7 +40,7 @@ function FriendFinder({ currUser }) {
     }
 
     // TODO: Should this be checked differently?
-    if (msg === "like") {
+    if (msg === "liked") {
       potentialFriends.pop();
       setPotentialFriends(potentialFriends => [...potentialFriends]);
     }

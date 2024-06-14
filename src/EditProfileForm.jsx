@@ -28,15 +28,15 @@ function EditProfileForm({ currUser }) {
 
   return (
     <form>
-      <div class="row mb-3">
+      <div className="row mb-3">
         <label className="col-sm-2 col-form-label" htmlFor="EditProfileForm-username">Username</label>
-        <div class="col-sm-10">
+        <div className="col-sm-10">
           <input className="form-control" id="EditProfileForm-username" name="username" value={formData.username} onChange={handleChange} disabled />
         </div>
       </div>
       <div className="row mb-3">
         <label className="col-sm-2 col-form-label" htmlFor="EditProfileForm-first_name">First Name</label>
-        <div class="col-sm-10">
+        <div className="col-sm-10">
           <input className="form-control" id="EditProfileForm-first_name" name="first_name" value={formData.first_name} onChange={handleChange} />
         </div>
       </div>

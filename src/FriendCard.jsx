@@ -1,5 +1,5 @@
 import "./FriendCard.css";
-import { Card, CardBody, CardTitle, CardText } from "reactstrap";
+import { Card, CardImg, CardBody, CardTitle, CardText } from "reactstrap";
 // import { Link } from "react-router-dom";
 
 const DEFAULT_FRIEND = {
@@ -19,7 +19,7 @@ const DEFAULT_FRIEND = {
  *
  * FriendFinder -> FriendCard
 */
-function FriendCard({ friendDetails, handleClick }) {
+function FriendCard({ friendDetails, areFriends, handleClick, handlePass }) {
 
   return (
     <div className="FriendCard container">
@@ -33,10 +33,22 @@ function FriendCard({ friendDetails, handleClick }) {
                 <b>About {friendDetails.first_name}: </b>
                 <p>{friendDetails.bio}</p>
               </div>
-              <button className="btn btn-primary" onClick={handleClick}>
-                <i className="FriendCard-smile bi bi-emoji-smile h2"></i>
-                {`  Add friend!`}
-              </button>
+              {areFriends &&
+                <button className="btn btn-success" onClick={handleClick}>
+                  <i className="FriendCard-smile-fill bi bi-emoji-smile h2"></i>
+                  {`  Make another friend!`}
+                </button>
+              }
+              {!areFriends &&
+                <div className="row">
+                  <button className="btn btn-primary col m-4" onClick={handleClick}>
+                    {` Like`}
+                  </button>
+                  <button className="btn btn-warning col m-4" onClick={handlePass}>
+                    {` Pass`}
+                  </button>
+                </div>
+              }
             </div>
           </div>
         </div>

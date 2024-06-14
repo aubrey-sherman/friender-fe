@@ -28,12 +28,24 @@ function EditProfileForm({ currUser }) {
 
   return (
     <form>
-      <label htmlFor="EditProfileForm-username">Username</label>
-      <input id="EditProfileForm-username" name="username" value={formData.username} onChange={handleChange} disabled />
-      <label htmlFor="EditProfileForm-first_name">First Name</label>
-      <input id="EditProfileForm-first_name" name="first_name" value={formData.first_name} onChange={handleChange} />
-      <label htmlFor="EditProfileForm-bio">Bio</label>
-      <input id="EditProfileForm-bio" name="bio" value={formData.bio} onChange={handleChange} />
+      <div class="row mb-3">
+        <label className="col-sm-2 col-form-label" htmlFor="EditProfileForm-username">Username</label>
+        <div class="col-sm-10">
+          <input className="form-control" id="EditProfileForm-username" name="username" value={formData.username} onChange={handleChange} disabled />
+        </div>
+      </div>
+      <div className="row mb-3">
+        <label className="col-sm-2 col-form-label" htmlFor="EditProfileForm-first_name">First Name</label>
+        <div class="col-sm-10">
+          <input className="form-control" id="EditProfileForm-first_name" name="first_name" value={formData.first_name} onChange={handleChange} />
+        </div>
+      </div>
+      <div className="row mb-3">
+        <label className="col-sm-2 col-form-label" htmlFor="EditProfileForm-bio">Bio</label>
+        <div className="col-sm-10">
+          <textarea className="form-control" id="EditProfileForm-bio" name="bio" value={formData.bio} onChange={handleChange} />
+        </div>
+      </div>
     </form>
   );
 }

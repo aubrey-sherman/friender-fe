@@ -31,7 +31,7 @@ function LoginForm({ logIn }) {
   }
 
   return (
-    <form className="LoginForm" onSubmit={handleSubmit}>
+    <form className="LoginForm m-4" onSubmit={handleSubmit}>
       <div className="mb-3">
         <label htmlFor="LoginForm-username" className="col-5">Username</label>
         <input
@@ -55,7 +55,7 @@ function LoginForm({ logIn }) {
         />
       </div>
 
-      <button>Log In</button>
+      <button className="btn btn-primary">Log In</button>
     </form>
   );
 }

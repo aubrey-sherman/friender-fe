@@ -14,9 +14,9 @@ import UploadImageForm from "./UploadImageForm.jsx";
 function Profile({ currUser, uploadImage }) {
 
   return (
-    <div>
+    <div className="Profile">
       <h3>Edit your profile</h3>
-      <img src={currUser.image_url} />
+      <img className="Profile-img mb-4" src={currUser.image_url} />
       <EditProfileForm currUser={currUser} />
       <UploadImageForm uploadImage={uploadImage} />
     </div>

@@ -34,7 +34,7 @@ function SignupForm({ signUp }) {
   }
 
   return (
-    <form className="SignupForm" onSubmit={handleSubmit}>
+    <form className="SignupForm m-4" onSubmit={handleSubmit}>
       <div className="mb-3">
         <label htmlFor="SignupForm-username" className="col-5">Username</label>
         <input
@@ -58,7 +58,7 @@ function SignupForm({ signUp }) {
         />
       </div>
 
-      <button>Sign Up!</button>
+      <button className="btn btn-primary">Sign Up!</button>
     </form>
   );
 }

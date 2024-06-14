@@ -15,7 +15,7 @@ function NavBar({ currUser, logOut }) {
     return (
       <ul className="navbar-nav ms-auto">
         <li className="nav-item me-4">
-        <NavLink className="nav-link" to="/friends">
+          <NavLink className="nav-link" to="/friends">
             Friends
           </NavLink>
         </li>
@@ -57,7 +57,7 @@ function NavBar({ currUser, logOut }) {
   }
 
   return (
-    <nav className="Navigation navbar navbar-expand-md">
+    <nav style={{ backgroundColor: "lightsalmon" }} className="Navigation navbar navbar-expand-md">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           Friender

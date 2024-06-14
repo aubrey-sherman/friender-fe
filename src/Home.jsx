@@ -11,8 +11,8 @@ import UploadImageForm from "./UploadImageForm.jsx";
 function Home() {
 
   return (
-    <div className="Home">
-      <p>Sign up for Friender!</p>
+    <div className="Home text-center mt-5">
+      <h2>Your next great friendship awaits!</h2>
     </div>
   );
 }

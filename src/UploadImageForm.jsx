@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./UploadImageForm.css";
 
 /** Allows user to upload an image file from their local directory.
  *
@@ -23,7 +24,7 @@ function UploadImageForm({ uploadImage }) {
 
   return (
     <div className="UploadImageForm">
-      <h3>Upload a profile pic!</h3>
+      <p>Upload your profile picture:</p>
       <form onSubmit={handleSubmit}>
         <input type="file" name="image" onChange={handleChange} />
         <button>Upload Image!</button>

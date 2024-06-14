@@ -25,7 +25,7 @@ function RouteList({ currUser, uploadImage, signUp, logIn }) {
       {currUser &&
         <Routes>
           <Route path="/" element={<FriendFinder currUser={currUser} />} />
-          <Route path="/friends" element={<Friends />} />
+          <Route path="/friends" element={<Friends currUser={currUser} />} />
           <Route path="/profile" element={<Profile uploadImage={uploadImage} currUser={currUser} />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
